@@ -63,4 +63,29 @@ document.addEventListener('DOMContentLoaded', () => {
       header.style.boxShadow = '0 1px 2px 0 rgb(0 0 0 / 0.05)';
     }
   });
+
+  // Sideways Accordion/Tab Functionality
+  const accordionHeaders = document.querySelectorAll('.accordion-header[data-target]');
+  accordionHeaders.forEach(headerBtn => {
+    headerBtn.addEventListener('click', () => {
+      const targetId = headerBtn.getAttribute('data-target');
+      const targetContent = document.getElementById(targetId);
+      
+      // Remove active class from all headers
+      document.querySelectorAll('.accordion-header').forEach(h => {
+        h.classList.remove('active');
+      });
+      
+      // Remove active class from all content panels
+      document.querySelectorAll('.accordion-content').forEach(content => {
+        content.classList.remove('active');
+      });
+      
+      // Add active class to clicked header and its content
+      headerBtn.classList.add('active');
+      if (targetContent) {
+        targetContent.classList.add('active');
+      }
+    });
+  });
 });
