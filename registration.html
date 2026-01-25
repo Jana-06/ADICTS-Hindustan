@@ -67,7 +67,7 @@
                     <li><a href="committee.html">Committee</a></li>
                     <li><a href="dates.html">Important Dates</a></li>
                     <li><a href="registration.html" class="active">Registration</a></li>
-                    <li><a href="tracks.html">Teams</a></li>
+                    <li><a href="tracks.html">Themes</a></li>
                     <li><a href="submission.html">Submission</a></li>
                     <li><a href="speakers.html">Speakers</a></li>
                     <li><a href="downloads.html">Downloads</a></li>
@@ -201,8 +201,13 @@
         </div>
 
         <div class="card fade-in-up" style="margin-top: 2rem; background: #f1f5f9;">
-            <h3><i class="fas fa-exclamation-circle text-primary"></i> Registration Rules & Guidelines</h3>
-            <ul style="list-style: none; margin-top: 15px;">
+            <div class="rules-dropdown" style="cursor: pointer;" onclick="toggleRulesDropdown()">
+                <h3 style="display: flex; justify-content: space-between; align-items: center; margin: 0;">
+                    <span><i class="fas fa-exclamation-circle text-primary"></i> Registration Rules & Guidelines</span>
+                    <i class="fas fa-chevron-down rules-dropdown-icon" style="transition: transform 0.3s ease;"></i>
+                </h3>
+            </div>
+            <ul id="rulesContent" style="list-style: none; margin-top: 15px; display: none; transition: all 0.3s ease;">
                 <li style="margin-bottom: 10px; display: flex; gap: 10px;"><i class="fas fa-check"
                         style="color: var(--secondary-color); margin-top: 5px;"></i> <span>Pay Registration Fees
                         Online-NEFT / RTGS / Wire Transfer in our Indian Overseas Bank (All authors from India/Outside
@@ -251,40 +256,73 @@
             </ul>
         </div>
 
+        <script>
+            function toggleRulesDropdown() {
+                const content = document.getElementById('rulesContent');
+                const icon = document.querySelector('.rules-dropdown-icon');
+                if (content.style.display === 'none') {
+                    content.style.display = 'block';
+                    icon.style.transform = 'rotate(180deg)';
+                } else {
+                    content.style.display = 'none';
+                    icon.style.transform = 'rotate(0deg)';
+                }
+            }
+
+            function toggleSubmissionDropdown() {
+                const content = document.getElementById('submissionContent');
+                const icon = document.querySelector('.submission-dropdown-icon');
+                if (content.style.display === 'none') {
+                    content.style.display = 'block';
+                    icon.style.transform = 'rotate(180deg)';
+                } else {
+                    content.style.display = 'none';
+                    icon.style.transform = 'rotate(0deg)';
+                }
+            }
+        </script>
+
         <div class="card fade-in-up" style="margin-top: 2rem; border-left: 5px solid var(--secondary-color);">
-            <h3><i class="fas fa-file-alt text-primary"></i> Submission of IEEE Xplore Compatible Manuscripts</h3>
-            <p style="margin-bottom: 15px; font-weight: 600;">Conference ID: 5848</p>
-            <p style="margin-bottom: 15px;">The steps you have to follow in re-submitting the final version of your
-                paper:</p>
-            <ul style="list-style: none; margin-top: 15px;">
-                <li style="margin-bottom: 10px; display: flex; gap: 10px;"><i class="fas fa-angle-right"
-                        style="color: var(--secondary-color); margin-top: 5px;"></i> <span>Please strictly follow <a
-                            href="http://www.ieee.org/conferences_events/conferences/publishing/templates.html"
-                            target="_blank" style="color: var(--primary-color); font-weight: 600;">IEEE Template</a>.
-                        Use the A4 format.</span></li>
-                <li style="margin-bottom: 10px; display: flex; gap: 10px;"><i class="fas fa-angle-right"
-                        style="color: var(--secondary-color); margin-top: 5px;"></i> <span>Revise as per REVIEWERS
-                        COMMENTS for your paper, which are intended to help you to improve your paper before the final
-                        publication. The listed comments should be addressed carefully in your revision. It is mandatory
-                        for all authors to incorporate all the changes suggested by reviewers else their paper will be
-                        excluded from conference proceedings.</span></li>
-                <li style="margin-bottom: 10px; display: flex; gap: 10px;"><i class="fas fa-angle-right"
-                        style="color: var(--secondary-color); margin-top: 5px;"></i> <span>Each paper must not exceed 6
-                        pages including figures and references and must not be less than 5 pages.</span></li>
-                <li style="margin-bottom: 10px; display: flex; gap: 10px;"><i class="fas fa-angle-right"
-                        style="color: var(--secondary-color); margin-top: 5px;"></i> <span>In accordance with the IEEE
-                        policy, plagiarism in any form, at any level, is unacceptable. Therefore, the conference
-                        reserves the right to reject the final manuscript which is found to have high degree of
-                        plagiarism after registration without refund.</span></li>
-                <li style="margin-bottom: 10px; display: flex; gap: 10px;"><i class="fas fa-angle-right"
-                        style="color: var(--secondary-color); margin-top: 5px;"></i> <span>Before creating your PDF,
-                        proofread your source document thoroughly to confirm that it will require no revision.</span>
-                </li>
-                <li style="margin-bottom: 10px; display: flex; gap: 10px;"><i class="fas fa-angle-right"
-                        style="color: var(--secondary-color); margin-top: 5px;"></i> <span>For any query feel free to
-                        talk on Mob- <strong>9445267280</strong>, or email: <a href="mailto:adics2026@gmail.com"
-                            style="color: var(--primary-color); font-weight: 600;">adics2026@gmail.com</a></span></li>
-            </ul>
+            <div class="submission-dropdown" style="cursor: pointer;" onclick="toggleSubmissionDropdown()">
+                <h3 style="display: flex; justify-content: space-between; align-items: center; margin: 0;">
+                    <span><i class="fas fa-file-alt text-primary"></i> Submission of IEEE Xplore Compatible Manuscripts</span>
+                    <i class="fas fa-chevron-down submission-dropdown-icon" style="transition: transform 0.3s ease;"></i>
+                </h3>
+            </div>
+            <div id="submissionContent" style="display: none; margin-top: 15px;">
+                <p style="margin-bottom: 15px; font-weight: 600;">Conference ID: 5848</p>
+                <p style="margin-bottom: 15px;">The steps you have to follow in re-submitting the final version of your
+                    paper:</p>
+                <ul style="list-style: none; margin-top: 15px;">
+                    <li style="margin-bottom: 10px; display: flex; gap: 10px;"><i class="fas fa-angle-right"
+                            style="color: var(--secondary-color); margin-top: 5px;"></i> <span>Please strictly follow <a
+                                href="http://www.ieee.org/conferences_events/conferences/publishing/templates.html"
+                                target="_blank" style="color: var(--primary-color); font-weight: 600;">IEEE Template</a>.
+                            Use the A4 format.</span></li>
+                    <li style="margin-bottom: 10px; display: flex; gap: 10px;"><i class="fas fa-angle-right"
+                            style="color: var(--secondary-color); margin-top: 5px;"></i> <span>Revise as per REVIEWERS
+                            COMMENTS for your paper, which are intended to help you to improve your paper before the final
+                            publication. The listed comments should be addressed carefully in your revision. It is mandatory
+                            for all authors to incorporate all the changes suggested by reviewers else their paper will be
+                            excluded from conference proceedings.</span></li>
+                    <li style="margin-bottom: 10px; display: flex; gap: 10px;"><i class="fas fa-angle-right"
+                            style="color: var(--secondary-color); margin-top: 5px;"></i> <span>Each paper must not exceed 6
+                            pages including figures and references and must not be less than 5 pages.</span></li>
+                    <li style="margin-bottom: 10px; display: flex; gap: 10px;"><i class="fas fa-angle-right"
+                            style="color: var(--secondary-color); margin-top: 5px;"></i> <span>In accordance with the IEEE
+                            policy, plagiarism in any form, at any level, is unacceptable. Therefore, the conference
+                            reserves the right to reject the final manuscript which is found to have high degree of
+                            plagiarism after registration without refund.</span></li>
+                    <li style="margin-bottom: 10px; display: flex; gap: 10px;"><i class="fas fa-angle-right"
+                            style="color: var(--secondary-color); margin-top: 5px;"></i> <span>Before creating your PDF,
+                            proofread your source document thoroughly to confirm that it will require no revision.</span>
+                    </li>
+                    <li style="margin-bottom: 10px; display: flex; gap: 10px;"><i class="fas fa-angle-right"
+                            style="color: var(--secondary-color); margin-top: 5px;"></i> <span>For any query feel free to
+                            talk on Mob- <strong>9445267280</strong>, or email: <a href="mailto:adics2026@gmail.com"
+                                style="color: var(--primary-color); font-weight: 600;">adics2026@gmail.com</a></span></li>
+                </ul>
+            </div>
         </div>
 
         <div class="card fade-in-up" style="margin-top: 2rem; background: #fef3c7; border-left: 5px solid #f59e0b;">
