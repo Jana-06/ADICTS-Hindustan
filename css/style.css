@@ -787,7 +787,11 @@ footer {
 /* Committee Page Mobile Responsive */
 @media (max-width: 768px) {
   .committee-section {
-    padding: 40px 0;
+    padding: 100px 0 40px;
+  }
+
+  .committee-section .section-title {
+    margin-bottom: 20px;
   }
 
   .accordion-container {
